@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+<title>Exercise Library | Antons Hybrid Way</title>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description" content="Exercise library for training inspiration and workout planning.">
+
+<link rel="stylesheet" href="site.css">
+
+</head>
+
+<body>
+<!-- Header section: navigation and branding -->
+<header>
+
+<div class="header-wrap">
+
+<div class="brand">
+<h1>ANTONS HYBRID WAY</h1>
+<p>Train smarter. Eat better. Build your hybrid way.</p>
+</div>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="programs.html">Programs</a>
+<a href="calculators.html">Calculators</a>
+<a href="libray.html">Exercise Library</a>
+<a href="coaching.html">Coaching</a>
+</nav>
+
+</div>
+
+</header>
+
+<main>
+<!-- Hero section: introduces the exercise library -->
+<section class="hero">
+
+<div class="hero-content">
+
+<p class="hero-tag">EXERCISE LIBRARY</p>
+
+<h2>Find exercises for your training</h2>
+
+<p class="hero-text">
+Choose a muscle group and explore exercises you can include in your workouts.
+</p>
+
+</div>
+
+</section>
+<!-- Selection section: user chooses muscle group -->
+<section class="section light-section">
+
+<div class="content-wrap">
+
+<h2>Select a Muscle Group</h2>
+
+<div class="select-box">
+
+<label for="muscle">Muscle Group</label>
+
+<select id="muscle">
+<option>Chest</option>
+<option>Back</option>
+<option>Legs</option>
+<option>Shoulders</option>
+<option>Arms</option>
+</select>
+
+</div>
+
+<br><br>
+
+<button class="exercise-btn" onclick="loadExercises()">LOAD EXERCISES</button>
+
+</div>
+
+</section>
+<!-- Output section: displays exercises based on selection -->
+<section class="section grey-section">
+
+<div class="content-wrap">
+
+<h2>Exercises</h2>
+
+<div id="exerciseResults" class="exercise-output">
+
+<p>Exercises will appear here.</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- API section: browser geolocation example -->
+<section class="section light-section">
+
+<div class="content-wrap">
+
+<h2>Find Your Training Location</h2>
+
+<p>
+Click below to get your current location using your browser.
+</p>
+
+<button class="exercise-btn" onclick="getLocation()">GET MY LOCATION</button>
+
+<div id="locationResult" class="exercise-output">
+Your location will appear here.
+</div>
+
+</div>
+
+</section>
+
+</main>
+<!-- Footer Section -->
+<footer>
+
+<div class="content-wrap">
+
+<p>&copy; 2026 Antons Hybrid Way</p>
+
+<p>
+<a href="index.html">Home</a> |
+<a href="programs.html">Programs</a> |
+<a href="calculators.html">Calculators</a> |
+<a href="libray.html">Exercise Library</a> |
+<a href="coaching.html">Coaching</a>
+</p>
+
+</div>
+
+</footer>
+<script>
+
+/* Exercise selector function */
+function loadExercises(){
+
+let muscle = document.getElementById("muscle").value;
+
+let exercises = "";
+
+if(muscle === "Chest"){
+exercises = `
+<strong style="font-size:20px;">Bench Press</strong> - 3 Sets Of 8-12 Reps<br><br>
+<strong style="font-size:20px;">Incline Dumbbell Press</strong> - 3 Sets Of 6-10 Reps<br><br>
+<strong style="font-size:20px;">Chest Fly</strong> - 3 Sets Of 12-15 Reps<br><br>
+<strong style="font-size:20px;">Push Ups</strong> - 2 Sets Of Controlled Failure Fatigue`;
+}
+
+if(muscle === "Back"){
+exercises = `
+<strong style="font-size:20px;">Pull Ups</strong> - 3 Sets Of 8-15 Reps<br><br>
+<strong style="font-size:20px;">Lat Pulldown</strong> - 3 Sets Of 10-12 Reps<br><br>
+<strong style="font-size:20px;">Barbell Row</strong> - 3 Sets Of 12 Controlled Reps<br><br>
+<strong style="font-size:20px;">Seated Cable Row</strong> - 3 Sets Of 15 Reps`;
+}
+
+if(muscle === "Legs"){
+exercises = `
+<strong style="font-size:20px;">Squats</strong> - 4 Sets Of 6-8 Reps<br><br>
+<strong style="font-size:20px;">Leg Press</strong> - 3 Sets Of 10 Reps<br><br>
+<strong style="font-size:20px;">Romanian Deadlift</strong> - 3 Sets Of 3-5 Reps<br><br>
+<strong style="font-size:20px;">Leg Extensions</strong> - 3 Sets Of 12-15 Reps`;
+}
+
+if(muscle === "Shoulders"){
+exercises = `
+<strong style="font-size:20px;">Overhead Press</strong> - 3 Sets Of 8 Reps<br><br>
+<strong style="font-size:20px;">Lateral Raises</strong> - 3 Sets Of 12-15 Reps<br><br>
+<strong style="font-size:20px;">Rear Delt Fly</strong> - 3 Sets Of 20 Reps<br><br>
+<strong style="font-size:20px;">Arnold Press</strong> - 3 Sets Of 8-12 Reps`;
+}
+
+if(muscle === "Arms"){
+exercises = `
+<strong style="font-size:20px;">Barbell Curl</strong> - 3 Sets Of 10-14 Reps<br><br>
+<strong style="font-size:20px;">Hammer Curl</strong> - 3 Sets Of 10-16 Reps<br><br>
+<strong style="font-size:20px;">Tricep Pushdown</strong> - 3 Sets Of 12-15 Reps<br><br>
+<strong style="font-size:20px;">Skull Crushers</strong> - 3 Sets Of 8-12 Reps`;
+}
+
+document.getElementById("exerciseResults").innerHTML = exercises;
+}
+
+/* API function: browser geolocation */
+function getLocation(){
+
+let output = document.getElementById("locationResult");
+
+if(navigator.geolocation){
+navigator.geolocation.getCurrentPosition(showPosition);
+}else{
+output.innerHTML = "Geolocation is not supported.";
+}
+
+}
+
+function showPosition(position){
+
+document.getElementById("locationResult").innerHTML =
+"Latitude: " + position.coords.latitude +
+"<br>Longitude: " + position.coords.longitude;
+
+}
+
+</script>
+</body>
+</html>

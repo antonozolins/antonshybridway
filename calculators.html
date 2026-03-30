@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+<title>Calculators | Antons Hybrid Way</title>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description" content="Maintenance calorie calculator and macro calculator for fitness training.">
+
+<link rel="stylesheet" href="site.css">
+
+</head>
+
+<body>
+<!-- Header section: navigation and branding -->
+<header>
+
+<div class="header-wrap">
+
+<div class="brand">
+<h1>ANTONS HYBRID WAY</h1>
+<p>Train smarter. Eat better. Build your hybrid way.</p>
+</div>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="programs.html">Programs</a>
+<a href="calculators.html">Calculators</a>
+<a href="libray.html">Exercise Library</a>
+<a href="coaching.html">Coaching</a>
+</nav>
+
+</div>
+
+</header>
+
+<main>
+<!-- Hero Section: introduces calculator tools -->
+<section class="hero">
+
+<div class="hero-content">
+
+<p class="hero-tag">CALCULATORS</p>
+
+<h2>Simple tools for smarter nutrition</h2>
+
+<p class="hero-text">
+Use these calculators to estimate your maintenance calories and macro targets.
+</p>
+
+</div>
+
+</section>
+<!-- Calculator section: maintenance calorie estimation -->
+<section class="section light-section">
+
+<div class="content-wrap">
+
+<h2>Maintenance Calorie Calculator</h2>
+
+<div class="calc-box">
+
+<label for="weight">Bodyweight (kg)</label>
+<input type="number" id="weight">
+
+<button onclick="calculateCalories()">Calculate Maintenance Calories</button>
+
+<div id="maintenanceResult" class="result-box">
+Your maintenance calories will appear here.
+</div>
+
+</div>
+
+</div>
+
+</section>
+<!-- Calculator section: macro breakdown -->
+<section class="section grey-section">
+
+<div class="content-wrap">
+
+<h2>Macro Calculator</h2>
+
+<div class="calc-box">
+
+<label for="macroWeight">Bodyweight (kg)</label>
+<input type="number" id="macroWeight">
+
+<button onclick="calculateMacros()">Calculate Macros</button>
+
+<div id="macroResult" class="result-box">
+Your macros will appear here.
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+<!-- Footer section -->
+<footer>
+
+<div class="content-wrap">
+
+<p>&copy; 2026 Antons Hybrid Way</p>
+
+<p>
+<a href="index.html">Home</a> |
+<a href="programs.html">Programs</a> |
+<a href="calculators.html">Calculators</a> |
+<a href="libray.html">Exercise Library</a> |
+<a href="coaching.html">Coaching</a>
+</p>
+
+</div>
+
+</footer>
+<!-- JavaScript: handles calculator functionality -->
+<script>
+
+/* Maintenance calorie calculator */
+
+function calculateCalories(){
+
+let weight = document.getElementById("weight").value;
+
+let calories = weight * 30;
+
+document.getElementById("maintenanceResult").innerHTML =
+"Estimated maintenance calories: " + calories;
+
+}
+
+/* Macro calculator */
+
+function calculateMacros(){
+
+let weight = document.getElementById("macroWeight").value;
+
+let protein = weight * 2;
+let fats = weight * 0.8;
+let carbs = weight * 3;
+
+document.getElementById("macroResult").innerHTML =
+"Protein: " + protein + "g | Fats: " + fats + "g | Carbs: " + carbs + "g";
+
+}
+
+</script>
+
+</body>
+</html>
